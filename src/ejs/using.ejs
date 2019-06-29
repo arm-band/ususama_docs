@@ -1,0 +1,274 @@
+<%
+parameters = {
+    title: "使い方",
+    entitle: "How to use?",
+    css: "contents",
+    js: "app.min",
+    description: "Kiribi Ususamaの使い方についてご説明します。",
+    ogpimage: "eyecatch.jpg"
+}
+%><%- include("util/_init_load") %><%- include("../../../../src/ejs/util/_headset", { config, parameters }) %>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<%- include("../../../../src/ejs/partial/_head", { config, parameters, commonVar, metaTitle, metaDescription, metaOgpimage }) %>
+</head>
+<body data-offset="<%= navbarHeight %>" class="<%= id %>" id="<%= id %>">
+<div id="wrapper">
+<div class="upper">
+<%- include("../../../../src/ejs/partial/_header", { config, commonVar }) %>
+<%- include("../../../../src/ejs/partial/_eyecatch", { headerString }) %>
+    <!-- main -->
+    <main class="main <%= id %>main">
+        <aside class="container">
+<%- include("../../../../src/ejs/partial/_breadcrumb", { parameters, relPath }) %>
+        </aside>
+        <section class="container my-5">
+                <div class="page-header mb-3 text-center how2use_header">
+                    <h2>動作要件<small class="ml-3">System Requirement</small></h2>
+                </div>
+                <div class="how2use_contents">
+                    <h3>Node.js</h3>
+                    <ul>
+                        <li><code>node</code>: <code>>= 9.0.0</code></li>
+                        <li><code>npm</code>: <code>>= 4.0.0</code></li>
+                    </ul>
+                    <h3>CDN</h3>
+                    <p>デフォルトで以下のCDNを使用しています。</p>
+                    <ul>
+                        <li>Font Awesome</li>
+                        <li>Google Fonts(Dansing Scripts, Sawarabi Mincho)</li>
+                    </ul>
+                </div>
+            </section>
+        <section class="container my-5">
+<%- include("partial/_getstarted") %>
+        </section>
+        <section class="container my-5">
+            <div class="page-header mb-3 text-center how2use_header">
+                <h2>コマンド一覧<small class="ml-3">Commands</small></h2>
+            </div>
+            <div class="how2use_contents">
+                <ul>
+                    <li><code>deploy</code>: <a href="<%= relPath %>about.html#features_initsetting">予め設定しておいた</a>FTP情報を使用して、サーバへFTPアップロードを行います</li>
+                    <li><code>guide</code>: <a href="<%= relPath %>about.html#features_styleguide">スタイルガイド</a>を生成します(<code>plugins.yml</code>の<code>styleguide</code>を<code>true</code>に設定しておくこと)</li>
+                    <li><code>setting</code>: 初期設定画面を開きます</li>
+                    <li><code>plugin</code>: プラグインを読み込むためのscss, jsファイルを生成します</li>
+                    <li><code>new</code>: 開発端末の時刻を使用して新着記事を生成します</li>
+                    <li><code>sitemap</code>: <code>dist</code>ディレクトリ以下にあるHTMLファイルから、サイトマップを生成します</li>
+                    <li><code>sitexml</code>: <code>dist</code>ディレクトリ以下にあるHTMLファイルから、検索エンジン用のサイトマップ(XMLファイル)を生成します</li>
+                </ul>
+                <p>※コマンドは全て<code>npm run</code>を前に付けること。</p>
+            </div>
+        </section>
+        <section class="container my-5">
+            <div class="page-header mb-3 text-center how2use_header">
+                <h2>プラグイン一覧<small class="ml-3">Plugins</small></h2>
+            </div>
+            <p><code>bin/config/plugins.yml</code>で有効化/無効化できる機能の一覧です。</p>
+            <div class="how2use_contents table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>フラグ名</th>
+                            <th>デフォルト値</th>
+                            <th>説明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>usephp</code></td>
+                            <td><code>false</code></td>
+                            <td>PHPを使用する場合、<code>browserSync</code>にプロキシとPHPエンジンを指定します(別途<code>gulp/tasks/phpsync.js</code>を手動で設定する必要があります)</td>
+                        </tr>
+                        <tr>
+                            <td><code>news</code></td>
+                            <td><code>true</code></td>
+                            <td>新着情報(一覧、記事詳細ページ)を生成するか</td>
+                        </tr>
+                        <tr>
+                            <td><code>ssl</code></td>
+                            <td><code>true</code></td>
+                            <td>SSLを使用してブラウザ表示するか</td>
+                        </tr>
+                        <tr>
+                            <td><code>styleguide</code></td>
+                            <td><code>true</code></td>
+                            <td>スタイルガイドを生成するか。<br>
+                                <code>gulp</code>のデフォルトタスクには含まれていないので、別途タスクを走らせる必要があります。<br>
+                                また、別途<code>src/scss/_plugins/styleguide/</code>の中のscssファイルを編集してプロジェクトに沿ったスタイルガイドを作成する必要があります。</td>
+                        </tr>
+                        <tr>
+                            <td><code>sitemap</code></td>
+                            <td><code>true</code></td>
+                            <td><code>dist/</code>下のHTMLファイルから、サイトマップ(ユーザが閲覧するためのHTML)を生成します。<br>
+                                ※<code>gulp</code>のデフォルトタスクには含まれていないので、別途タスクを走らせる必要があります。</td>
+                        </tr>
+                        <tr>
+                            <td><code>sitemap_xml</code></td>
+                            <td><code>true</code></td>
+                            <td>dist/</code>下のHTMLファイルから、サイトマップ(クローラ用のXMLファイル)を生成します。<br>
+                                ※<code>gulp</code>のデフォルトタスクには含まれていないので、別途タスクを走らせる必要があります。</td>
+                        </tr>
+                        <tr>
+                            <td><code>rss</code></td>
+                            <td><code>true</code></td>
+                            <td>新着情報からRSSフィードを生成します。<br>
+                                ※このフラグに関わらず、<code>news</code>が<code>false</code>の場合は生成されません。</td>
+                        </tr>
+                        <tr>
+                            <td><code>ogp</code></td>
+                            <td><code>true</code></td>
+                            <td>各ページの<code>head</code>内にOGP用のタグを出力します。<br>
+                                ページ名や説明は各ejs内のパラメータ、サイト名やTwitterアカウント情報などは設定ファイル(<code>bin/config/config.yml</code>)を利用して、適宜OGPを設定します。<br>
+                                また、新着情報についてはフロントマターを使用して適宜設定できます。</td>
+                        </tr>
+                        <tr>
+                            <td><code>analytics</code></td>
+                            <td><code>true</code></td>
+                            <td>Google アナリティクス用のタグを<code>head</code>内に出力します。<br>
+                                ※別途、設定ファイル(<code>bin/config/config.yml</code>)に<code>UA-XXXXXXXXX-X</code>形式のIDを指定してください。</td>
+                        </tr>
+                        <tr>
+                            <td><code>searchconsole</code></td>
+                            <td><code>true</code></td>
+                            <td>Googleサーチコンソールの認証コード(<code>google-site-verification</code>)をに出力します。<br>
+                                ※別途、設定ファイル(<code>bin/config/config.yml</code>)にIDを指定してください。</td>
+                        </tr>
+                        <tr>
+                            <td><code>pagetop</code></td>
+                            <td><code>true</code></td>
+                            <td>画面右下にページトップへ戻るボタンを設置します。</td>
+                        </tr>
+                        <tr>
+                            <td><code>articlesns</code></td>
+                            <td><code>true</code></td>
+                            <td>新着情報の記事詳細ページに各種SNSボタンを設置します。</td>
+                        </tr>
+                        <tr>
+                            <td><code>themecolor</code></td>
+                            <td><code>true</code></td>
+                            <td>Android Chrome用のテーマカラーを<code>head</code>内に出力します。<br>
+                                また、iPhoneなどのURLバーにも背景色を設定します。</td>
+                        </tr>
+                        <tr>
+                            <td><code>safari</code></td>
+                            <td><code>true</code></td>
+                            <td>iOS Safari用のコードを出力します(<code>background-size:cover;background-attachement:fixed;</code>指定をしたアイキャッチ画像の巨大化)。<br>
+                                ※<code>body</code>タグに<code>mobileSafari</code>クラスを付与するので、クラスを用いて別のiOS Safari用の処理に流用することができます。</td>
+                        </tr>
+                        <tr>
+                            <td><code>ie</code></td>
+                            <td><code>false</code></td>
+                            <td>IE用のコードを出力します(<code><meta http-equiv="X-UA-Compatible" content="IE=edge"></code>等)。</td>
+                        </tr>
+                        <tr>
+                            <td><code>chrome</code></td>
+                            <td><code>true</code></td>
+                            <td>Google Chrome用のコードを出力します(<code>ul</code>, <code>ol</code>の左側のパディングを打ち消す)。</td>
+                        </tr>
+                        <tr>
+                            <td><code>fixedanchor_scss</code></td>
+                            <td><code>false</code></td>
+                            <td>画面上端にヘッダメニューを固定した場合にアンカースクロールがズレる現象を回避するためのコードを追加します(cssバージョン)。<br>
+                                ※<code>fixedanchor_js</code>と両方とも<code>true</code>にはしないでください。</td>
+                        </tr>
+                        <tr>
+                            <td><code>fixedanchor_js</code></td>
+                            <td><code>true</code></td>
+                            <td>画面上端にヘッダメニューを固定した場合にアンカースクロールがズレる現象を回避するためのコードを追加します(cssバージョン)。<br>
+                                ※<code>fixedanchor_scss</code>と両方とも<code>true</code>にはしないでください。</td>
+                        </tr>
+                        <tr>
+                            <td><code>lightbox</code></td>
+                            <td><code>true</code></td>
+                            <td><a href="https://lokeshdhakar.com/projects/lightbox2/">Lightbox</a>を使用します。<br>
+                                ※画像への指定は別途行ってください。</td>
+                        </tr>
+                        <tr>
+                            <td><code>slick</code></td>
+                            <td><code>true</code></td>
+                            <td><a href="https://kenwheeler.github.io/slick/">slick</a>を使用します。</td>
+                        </tr>
+                        <tr>
+                            <td><code>svghexagon</code></td>
+                            <td><code>false</code></td>
+                            <td>ヘッダメニューのハンバーガーの背景にsvgを使用して六角形を描画します。</td>
+                        </tr>
+                        <tr>
+                            <td><code>getjson</code></td>
+                            <td><code>false</code></td>
+                            <td>jQueryのJSONを取得するコードを追加します。</td>
+                        </tr>
+                        <tr>
+                            <td><code>facebookresize</code></td>
+                            <td><code>false</code></td>
+                            <td><code>resize</code>イベントで幅を調整するようにfacebook埋め込みを調整するjQuery, Scssコードを追加します。<br>
+                                ※別途ejsにfacebookの<code><div id="fb-root"></div><script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.2"></script></code>を追加し、facebookの埋め込み本体は<code><div class="fbWrapper" id="fbWrapper"></div></code>というラッパーのみを記述してください。</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="container my-5">
+            <div class="page-header mb-3 text-center how2use_header">
+                <h2>ディレクトリ構造<small class="ml-3">Directory Structure</small></h2>
+            </div>
+            <div class="how2use_contents">
+                <pre><code>
+root/
+  ├ bin/                  //nodeスクリプトや設定ファイル(config/ 以外は通常編集しない)
+  │   ├ config/
+  │   │   ├ commonvar.yml //ejs, Scss, JSで共通で使い回す値(テーマカラーやヘッダの高さ等)
+  │   │   ├ config.yml    //一般設定
+  │   │   ├ ftpconfig.yml //FTP設定テンプレート(編集しない)
+  │   │   └ plugins.yml   //プラグイン使用フラグ設定
+  │   ├ daishi/           //初期設定画面のソースコード一式
+  │   ├ styleguide/       //スタイルガイド用テンプレート
+  │   └ jsファイル         //タスクスクリプト
+  ├ gulp/                 //gupタスク(通常編集しない)
+  ├ src/
+  │   ├ contents/         //(npm start で自動生成されます)新着記事Markdown格納ディレクトリ(1記事1ファイル)
+  │   ├ ejs/
+  │   │   ├ _plugins/     //プラグイン機能ディレクトリ
+  │   │   ├ partial/      //ヘッダ・フッタ等のパーツ
+  │   │   ├ util/         //表示・出力はされないejsファイル(パスの処理など)
+  │   │   ├ about.ejs     //一般ページサンプル
+  │   │   ├ article.ejs   //新着記事、詳細ページテンプレート
+  │   │   ├ index.ejs     //トップページ
+  │   │   └ news.ejs      //新着記事、一覧ページテンプレート
+  │   ├ favicon/
+  │   ├ img/              //画像ファイル
+  │   │   └ thumbnails/   //新着記事サムネイル画像格納ディレクトリ
+  │   ├ js/
+  │   │   ├ _plugins/     //プラグイン機能ディレクトリ
+  │   │   └ app.js        //メインスクリプト
+  │   ├ scss/
+  │   │   ├ _plugins/     //プラグイン機能ディレクトリ
+  │   │   ├ assets/       //(npm start で自動生成されます)Bootstrap等のフレームワークのコードの格納ディレクトリ(編集のため)
+  │   │   ├ index/        //トップページ用のパーツ
+  │   │   ├ partial/      //ヘッダ・フッタ等のパーツ
+  │   │   ├ util/         //直接表示・出力はされないScssファイル(タイポグラフィやメインカラーの設定など)
+  │   │   ├ _common.scss  //共通Scss
+  │   │   ├ contents.scss //トップページ以外用Scss
+  │   │   └ index.scss    //トップページ
+  ├ .gitignore
+  ├ gulpfile.js
+  ├ package.json
+  └ readme.md
+                </code></pre>
+            </div>
+        </section>
+        <section class="container my-5">
+            <div class="text-center my-4">
+                <a href="<%= relPath %>" class="btn btn-light"><i class="fas fa-fw fa-chevron-left" aria-hidden="true"></i>トップページへ戻る</a>
+            </div>
+        </section>
+    </main>
+    <!-- /main -->
+</div>
+<%- include("../../../../src/ejs/partial/_footer", { config, copyRightYear }) %>
+</div>
+<%- include("../../../../src/ejs/partial/_js_loader", { parameters, relPath }) %>
+</body>
+</html>

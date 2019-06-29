@@ -12,7 +12,7 @@
 //  アイキャッチ                                    *
 //                                                *
 // ============================================= */
-@import "index/eyecatch";
+@import "../../../../src/scss/index/eyecatch";
 
 // ============================================== *
 //                                                *
@@ -20,5 +20,26 @@
 //                                                *
 // ============================================= */
 .index .indexmain {
-
+    .origin {
+        background: {
+            image: url("../img/origin_of_name.jpg");
+            repeat: no-repeat;
+            position: center center;
+        }
+        background-size: cover;
+        padding: {
+            left: 0;
+            right: 0;
+        }
+        &_container {
+            background-color: rgba($color, 0.4);
+            color: $bg-color;
+        }
+    }
+}
+body:not(.mobileSafari).index .indexmain .origin {
+    background-attachment: fixed;
+}
+body.mobileSafari.index .indexmain .origin { //index.jsでUAにより付与。mobile Safariバグ対策
+    background-attachment: scroll;
 }

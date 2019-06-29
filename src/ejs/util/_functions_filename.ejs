@@ -24,7 +24,7 @@ funcFileNamePath = (filename, fnProcedure, id) => {
             depth = 2
             break
         default:
-            depth = fnProcedure[1].split(`src${fnProcedure[0]}ejs`)[1].split(fnProcedure[0]).length - 2
+            depth = fnProcedure[1].split(`bin/docs${fnProcedure[0]}ejs`)[1].split(fnProcedure[0]).length - 2
             break
     }
     //相対パスを生成
