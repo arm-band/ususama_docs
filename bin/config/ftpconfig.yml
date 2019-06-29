@@ -1,10 +1,10 @@
-user:
-password:
+user: null
+password: null
 host: test.example.com
 port: 21
 localRoot: ./dist/
 remoteRoot: ./path/to/web/root/
 include:
-    - "*"
-    - "**/*"
+  - "*"
+  - "**/*"
 deleteRemote: false
