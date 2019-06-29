@@ -204,7 +204,7 @@ parameters = {
                             <td><code>facebookresize</code></td>
                             <td><code>false</code></td>
                             <td><code>resize</code>イベントで幅を調整するようにfacebook埋め込みを調整するjQuery, Scssコードを追加します。<br>
-                                ※別途ejsにfacebookの<code><div id="fb-root"></div><script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.2"></script></code>を追加し、facebookの埋め込み本体は<code><div class="fbWrapper" id="fbWrapper"></div></code>というラッパーのみを記述してください。</td>
+                                ※別途ejsにfacebookの<code>&lt;div id="fb-root"&gt;&lt;/div&gt;&lt;script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.2"&gt;&lt;/script&gt;</code>を追加し、facebookの埋め込み本体は<code>&lt;div class="fbWrapper" id="fbWrapper"&gt;&lt;/div&gt;</code>というラッパーのみを記述してください。</td>
                         </tr>
                     </tbody>
                 </table>
@@ -257,6 +257,51 @@ root/
   ├ package.json
   └ readme.md
                 </code></pre>
+            </div>
+        </section>
+        <section class="container my-5">
+            <div class="page-header mb-3 text-center how2use_header">
+                <h2>その他機能<small class="ml-3">Other Features</small></h2>
+            </div>
+            <div class="how2use_contents">
+                <h3 class="mt-3 mb-2"><code>src/scss/util/_var.scss</code></h3>
+                <p>gulpタスクが走ると<code>_var.scss</code>ファイルが生成されます。このファイルは<code>bin/config/commonvar.yml</code>から自動で生成されるため、編集しないでください。</p>
+                <p>なお、<code>bin/config/commonvar.yml</code>は<a href="<%= relPath %>about.html#features_gulp">gulpの機能</a>でも少し触れていますが、ejs, Scss等で共通する変数をまとめたものです。編集の際にはこちらを編集するようにしてください。</p>
+                <h3 class="mt-3 mb-2"><code>relPath</code></h3>
+                <p>ejsに<code>relPath</code>という変数が指定できます。これは、現在のejsファイルの相対パスを示すものです。</p>
+                <p>ただし、一部のejsはテンプレートとして実際のディレクトリ構造とは異なるパスを出力するため、この変数で指定をしています。</p>
+                <div class="table-responsive mt-3 mb-2">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>ejsファイル</th>
+                                <th>相対パスの深さ(上の階層に戻る個数)</th>
+                                <th>実ファイルの設置場所(<code>src/ejs/</code>をルートとしてカウント)</th>
+                                <th>備考</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>news.ejs</th>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>新着情報一覧ページのテンプレート</td>
+                            </tr>
+                            <tr>
+                                <th>article.ejs</th>
+                                <td>2</td>
+                                <td>0</td>
+                                <td>新着情報詳細ページのテンプレート</td>
+                            </tr>
+                            <tr>
+                                <th>_plugins/sitemap/sitemap.ejs</th>
+                                <td>0</td>
+                                <td>2</td>
+                                <td>サイトマップページのテンプレート</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
         <section class="container my-5">
