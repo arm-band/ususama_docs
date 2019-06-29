@@ -5,22 +5,14 @@
 // Import                                        *
 //                                               *
 // ============================================= */
-@import "../../../../src/scss/assets/bootstrap/bootstrap"; //bootstrap
-@import "../../../../src/scss/util/var"; //変数
+@import "assets/bootstrap/bootstrap"; //bootstrap
+@import "util/var"; //変数
 @import "../../../../node_modules/brand-colors/dist/latest/scss/brand-colors.latest"; //ソーシャルメディアなどのブランドカラー
-@import "../../../../src/scss/util/typo"; //ベンダープレフィックス等のMixinモジュール
-@import "../../../../src/scss/util/module"; //ベンダープレフィックス等のMixinモジュール
+@import "util/typo"; //ベンダープレフィックス等のMixinモジュール
+@import "util/module"; //ベンダープレフィックス等のMixinモジュール
 //@import "util/bootcanceller"; //bootstrapでいつも気になるものをキャンセル
-@import "../../../../src/scss/util/base"; //フォント指定やIE対処など
-//@import "../../../../src/scss/_plugins/plugins"; //プラグイン
-@import "../../../../src/scss/_plugins/styleguide/sg_index";
-@import "../../../../src/scss/_plugins/styleguide/sg_news";
-@import "../../../../src/scss/_plugins/styleguide/sg_article";
-@import "../../../../src/scss/_plugins/pagetop/pagetop";
-@import "../../../../src/scss/_plugins/articlesns/articlesns";
-@import "../../../../src/scss/_plugins/themecolor/themecolor";
-@import "../../../../src/scss/_plugins/safari/safari";
-@import "../../../../src/scss/_plugins/chrome/chrome";
+@import "util/base"; //フォント指定やIE対処など
+@import "_plugins/plugins"; //プラグイン
 
 // ============================================= *
 //                                               *
@@ -36,7 +28,7 @@
 //                                               *
 // ============================================= */
 //@import "util/navbar"; //ヘッダナビゲーションバーの設定。ハンバーガーメニューのアニメーションもここで。
-@import "../../../../src/scss/partial/header";
+@import "partial/header";
 
 // ============================================= *
 //                                               *
@@ -78,4 +70,4 @@
 // フッタ                                         *
 //                                               *
 // ============================================= */
-@import "../../../../src/scss/partial/footer";
+@import "partial/footer";

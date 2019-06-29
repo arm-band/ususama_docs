@@ -14,17 +14,17 @@ const indexCounter = () => {
     }
     return cnt;
 }
-%><%- include("util/_init_load") %><%- include("../../../../src/ejs/util/_functions_article") %><%- include("../../../../src/ejs/util/_headset", { config, parameters }) %>
+%><%- include("util/_init_load") %><%- include("util/_functions_article") %><%- include("util/_headset", { config, parameters }) %>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<%- include("../../../../src/ejs/partial/_head", { config, parameters, commonVar, metaTitle, metaDescription, metaOgpimage }) %>
+<%- include("partial/_head", { config, parameters, commonVar, metaTitle, metaDescription, metaOgpimage }) %>
 </head>
 <body data-spy="scroll" aria-controls="navbarList" data-target="#navbarList" data-offset="<%= navbarHeight %>" class="<%= id %>" id="<%= id %>">
 <div id="wrapper">
 <div class="upper">
-<%- include("../../../../src/ejs/partial/_header", { config, commonVar }) %>
-<%- include("../../../../src/ejs/partial/_eyecatch", { headerString, parameters }) %>
+<%- include("partial/_header", { config, commonVar }) %>
+<%- include("partial/_eyecatch", { headerString, parameters }) %>
     <!-- main -->
     <main class="main <%= id %>main">
         <section class="container my-5 features fixed_anchor" id="features">
@@ -109,7 +109,7 @@ if(plugins.news) {
             <div class="releasenotes_contents">
                 <p class="text-center">更新履歴一覧(<%= counter %>件)です。</p>
                 <div class="row align-items-top my-4">
-<%- include("../../../../src/ejs/partial/_newscards.ejs", { relPath, newsBlock }) %>
+<%- include("partial/_newscards.ejs", { relPath, newsBlock }) %>
                 </div>
             </div>
             <div class="text-center">
@@ -120,8 +120,8 @@ if(plugins.news) {
     </main>
     <!-- /main -->
 </div>
-<%- include("../../../../src/ejs/partial/_footer", { config, copyRightYear }) %>
+<%- include("partial/_footer", { config, copyRightYear }) %>
 </div>
-<%- include("../../../../src/ejs/partial/_js_loader", { parameters, relPath }) %>
+<%- include("partial/_js_loader", { parameters, relPath }) %>
 </body>
 </html>

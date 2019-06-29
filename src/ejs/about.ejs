@@ -7,21 +7,21 @@ parameters = {
     description: "Kiribi Ususamaの特徴についてご説明します。",
     ogpimage: "eyecatch.jpg"
 }
-%><%- include("util/_init_load") %><%- include("../../../../src/ejs/util/_headset", { config, parameters }) %>
+%><%- include("util/_init_load") %><%- include("util/_headset", { config, parameters }) %>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<%- include("../../../../src/ejs/partial/_head", { config, parameters, commonVar, metaTitle, metaDescription, metaOgpimage }) %>
+<%- include("partial/_head", { config, parameters, commonVar, metaTitle, metaDescription, metaOgpimage }) %>
 </head>
 <body data-offset="<%= navbarHeight %>" class="<%= id %>" id="<%= id %>">
 <div id="wrapper">
 <div class="upper">
-<%- include("../../../../src/ejs/partial/_header", { config, commonVar }) %>
-<%- include("../../../../src/ejs/partial/_eyecatch", { headerString }) %>
+<%- include("partial/_header", { config, commonVar }) %>
+<%- include("partial/_eyecatch", { headerString }) %>
     <!-- main -->
     <main class="main <%= id %>main">
         <aside class="container">
-<%- include("../../../../src/ejs/partial/_breadcrumb", { parameters, relPath }) %>
+<%- include("partial/_breadcrumb", { parameters, relPath }) %>
         </aside>
         <section class="container my-5">
             <div class="page-header mb-3 text-center features_header">
@@ -273,8 +273,8 @@ parameters = {
     </main>
     <!-- /main -->
 </div>
-<%- include("../../../../src/ejs/partial/_footer", { config, copyRightYear }) %>
+<%- include("partial/_footer", { config, copyRightYear }) %>
 </div>
-<%- include("../../../../src/ejs/partial/_js_loader", { parameters, relPath }) %>
+<%- include("partial/_js_loader", { parameters, relPath }) %>
 </body>
 </html>
