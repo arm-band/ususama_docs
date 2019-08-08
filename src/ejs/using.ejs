@@ -160,7 +160,7 @@ parameters = {
                         <tr>
                             <td><code>ie</code></td>
                             <td><code>false</code></td>
-                            <td>IE用のコードを出力します(<code><meta http-equiv="X-UA-Compatible" content="IE=edge"></code>等)。</td>
+                            <td>IE用のコードを出力します(<code>&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;</code>等)。</td>
                         </tr>
                         <tr>
                             <td><code>chrome</code></td>
@@ -199,12 +199,6 @@ parameters = {
                             <td><code>getjson</code></td>
                             <td><code>false</code></td>
                             <td>jQueryのJSONを取得するコードを追加します。</td>
-                        </tr>
-                        <tr>
-                            <td><code>facebookresize</code></td>
-                            <td><code>false</code></td>
-                            <td><code>resize</code>イベントで幅を調整するようにfacebook埋め込みを調整するjQuery, Scssコードを追加します。<br>
-                                ※別途ejsにfacebookの<code>&lt;div id="fb-root"&gt;&lt;/div&gt;&lt;script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.2"&gt;&lt;/script&gt;</code>を追加し、facebookの埋め込み本体は<code>&lt;div class="fbWrapper" id="fbWrapper"&gt;&lt;/div&gt;</code>というラッパーのみを記述してください。</td>
                         </tr>
                     </tbody>
                 </table>
