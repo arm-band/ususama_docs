@@ -2,6 +2,9 @@ const _         = require('../plugin')
 const dir       = require('../dir')
 const functions = require('../functions')
 const parameters = []
+const configHtmlMin = {
+    removeComments : true
+}
 
 //ejs
 _.gulp.task('commons.ejs', () => {
@@ -18,6 +21,8 @@ _.gulp.task('commons.ejs', () => {
     }))
     .pipe(_.ejs({ config, commonVar, plugins, parameters }))
     .pipe(_.rename({ extname: '.html' }))
+    .pipe(_.replace(/[\s\S]*?(<!DOCTYPE)/i, '$1'))
+    .pipe(_.htmlmin(configHtmlMin))
     .pipe(_.gulp.dest(dir.dist.html))
 })
 //トップページ用のejsタスク
@@ -44,6 +49,8 @@ _.gulp.task('index.ejs', () => {
     }))
     .pipe(_.ejs({ config, commonVar, plugins, newsBlock, parameters }))
     .pipe(_.rename({ extname: '.html' }))
+    .pipe(_.replace(/[\s\S]*?(<!DOCTYPE)/i, '$1'))
+    .pipe(_.htmlmin(configHtmlMin))
     .pipe(_.gulp.dest(dir.dist.html))
 })
 //新着情報専用のejsタスク
@@ -90,6 +97,8 @@ _.gulp.task('news.ejs', done => {
             }))
             .pipe(_.ejs({ config, commonVar, plugins, attributes, body, name, pages, parameters }))
             .pipe(_.rename(`${articleFileName}.html`))
+            .pipe(_.replace(/[\s\S]*?(<!DOCTYPE)/i, '$1'))
+            .pipe(_.htmlmin(configHtmlMin))
             .pipe(_.gulp.dest(dir.dist.articles))
 
         if(config.param.news.indexcount === 0 || config.param.news.indexcount > i) { //件数はconfig.param.news.indexcountの件数とする(0件の場合は全て)
@@ -104,6 +113,8 @@ _.gulp.task('news.ejs', done => {
             }))
             .pipe(_.ejs({ config, commonVar, plugins, newsBlock, name, pages, pageLength, parameters }))
             .pipe(_.rename(`${name}${pages}.html`))
+            .pipe(_.replace(/[\s\S]*?(<!DOCTYPE)/i, '$1'))
+            .pipe(_.htmlmin(configHtmlMin))
             .pipe(_.gulp.dest(dir.dist.news))
 
             newsBlock = [] //空にする
@@ -119,6 +130,8 @@ _.gulp.task('news.ejs', done => {
         }))
         .pipe(_.ejs({ config, commonVar, plugins, newsBlock, name, pages, pageLength, parameters }))
         .pipe(_.rename(`${name}${pages}.html`))
+        .pipe(_.replace(/[\s\S]*?(<!DOCTYPE)/i, '$1'))
+        .pipe(_.htmlmin(configHtmlMin))
         .pipe(_.gulp.dest(dir.dist.news))
     }
 
@@ -133,6 +146,7 @@ _.gulp.task('newsless.ejs', () => {
     const config = functions.getConfig(dir.config.config)
     const commonVar = functions.getConfig(dir.config.commonvar)
     const plugins = functions.getConfig(dir.config.plugins)
+    const newsBlock = []
 
     return _.gulp.src(
         [`${dir.src.ejs}/**/*.ejs`, `!${dir.src.ejs}/**/_*.ejs`, `!${dir.plugins.ejs}/**/*.ejs`, `!${dir.src.ejs}/news.ejs`, `!${dir.src.ejs}/article.ejs`] //_*.ejs(パーツ)とプラグインとindex,news,article(別タスクで定義)はhtmlにしない
@@ -141,8 +155,10 @@ _.gulp.task('newsless.ejs', () => {
     .pipe(_.data((file) => {
         return { 'filename': file.path }
     }))
-    .pipe(_.ejs({ config, commonVar, plugins, parameters }))
+    .pipe(_.ejs({ config, commonVar, plugins, newsBlock, parameters }))
     .pipe(_.rename({ extname: '.html' }))
+    .pipe(_.replace(/[\s\S]*?(<!DOCTYPE)/i, '$1'))
+    .pipe(_.htmlmin(configHtmlMin))
     .pipe(_.gulp.dest(dir.dist.html))
 })
 

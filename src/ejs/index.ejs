@@ -29,7 +29,7 @@ const indexCounter = () => {
     <main class="main <%= id %>main">
 <%- include("partial/_index_contents") %>
 <%
-if(plugins.news) {
+if(plugins.news && newsBlock !== undefined && newsBlock !== null && newsBlock.length > 0) {
     const counter = indexCounter()
 %>
         <section class="container my-5 releasenotes fixed_anchor" id="releasenotes">
