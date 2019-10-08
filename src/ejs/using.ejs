@@ -79,7 +79,7 @@ parameters = {
                         <tr>
                             <td><code>usephp</code></td>
                             <td><code>false</code></td>
-                            <td>PHPを使用する場合、<code>browserSync</code>にプロキシとPHPエンジンを指定します(別途<code>gulp/tasks/phpsync.js</code>を手動で設定する必要があります)</td>
+                            <td>PHPを使用する場合、<code>browserSync</code>にプロキシとPHPエンジンを指定します(別途<code>.env</code>を手動で設定する必要があります)</td>
                         </tr>
                         <tr>
                             <td><code>news</code></td>
@@ -195,11 +195,6 @@ parameters = {
                             <td><code>false</code></td>
                             <td>ヘッダメニューのハンバーガーの背景にsvgを使用して六角形を描画します。</td>
                         </tr>
-                        <tr>
-                            <td><code>getjson</code></td>
-                            <td><code>false</code></td>
-                            <td>jQueryのJSONを取得するコードを追加します。</td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -237,6 +232,7 @@ root/
   │   ├ js/
   │   │   ├ _plugins/     //プラグイン機能ディレクトリ
   │   │   └ app.js        //メインスクリプト
+  │   ├ php/              //PHPファイル用のディレクトリ
   │   ├ scss/
   │   │   ├ _plugins/     //プラグイン機能ディレクトリ
   │   │   ├ assets/       //(npm start で自動生成されます)Bootstrap等のフレームワークのコードの格納ディレクトリ(編集のため)
@@ -249,7 +245,8 @@ root/
   ├ .gitignore
   ├ gulpfile.js
   ├ package.json
-  └ readme.md
+  ├ readme.md
+  └ sample.env            //.envのサンプル
                 </code></pre>
             </div>
         </section>
