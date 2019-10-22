@@ -4,14 +4,14 @@
 <div class="how2use_contents">
     <h3>一人・初回の場合</h3>
     <ol class="pb-3">
-        <li><code>git clone https://github.com/arm-band/kiribi_ususama.git</code>、または<a href="https://github.com/arm-band/kiribi_ususama/releases" target="_blank"><i class="fas fa-fw fa-external-link-alt" aria-hidden="true"></i>Kiribi UsusamaのGithubリポジトリ</a>からダウンロード</li>
+        <li><code>git clone https://github.com/arm-band/kiribi_ususama.git</code>、または<a href="https://github.com/arm-band/kiribi_ususama/releases" target="_blank" rel="noopener"><i class="fas fa-fw fa-external-link-alt" aria-hidden="true"></i>Kiribi UsusamaのGithubリポジトリ</a>からダウンロード</li>
         <li><code>npm i -D</code><small class="ml-3">(または<code>npm install --save-dev</code>)</small></li>
         <li><code>npm start</code><small class="ml-3">(<code>npm i -D</code>したファイルの再配置<span class="mx-2">+</span>初期設定画面生成・表示<span class="mx-2">+</span>初期設定完了後、<code>gulp default</code>実行)</small>
             <ul>
                 <li><small>このコマンドで生成したディレクトリや<code>package-lock.json</code>等は<code>npm run delete</code>で削除できます</small></li>
             </ul>
         </li>
-        <li>2回目以降は<code>npm test</code>でブラウザ起動<span class="mx-2">+</span>自動リロード</li>
+        <li>2回目以降は<code>npm restart</code>でブラウザ起動<span class="mx-2">+</span>自動リロード</li>
     </ol>
     <h3 class="mt-3">複数人の場合</h3>
     <p>誰かが<code>npm start</code>した後のリポジトリを引き継いで、自分が最初に作業する場合</p>
@@ -19,6 +19,6 @@
         <li>プロジェクトのリポジトリを<code>git clone</code></li>
         <li><code>npm i -D</code><small class="ml-3">(または<code>npm install --save-dev</code>)</small></li>
         <li><strong><code>npm run init</code></strong><small class="ml-3">(<code>npm i -D</code>したファイルの再配置)</small></li>
-        <li><code>npm test</code></li>
+        <li><code>npm restart</code></li>
     </ol>
 </div>

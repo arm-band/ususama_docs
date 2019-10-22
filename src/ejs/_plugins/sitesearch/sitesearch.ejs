@@ -1,10 +1,10 @@
 <%
 parameters = {
-    title: 'サイトマップ',
-    entitle: 'Sitemap',
+    title: 'サイト内検索',
+    entitle: 'Search',
     css: 'contents',
     js: 'app.min',
-    description: 'サイト内のページ一覧です。',
+    description: 'サイト内検索ページです。',
     ogpimage: 'eyecatch.jpg'
 };
 %><%- include('../../util/_init_load') %><%- include('../../util/_headset', { config, parameters }) %>
@@ -19,17 +19,21 @@ parameters = {
 <%- include('../../partial/_header', { config, commonVar }) %>
 <%- include('../../partial/_eyecatch', { headerString }) %>
     <!-- main -->
-    <main class="main <%= id %>main">
+    <main class="main <%= id %>main" id="listSearch">
         <aside class="container">
 <%- include('../../partial/_breadcrumb', { parameters, relPath }) %>
         </aside>
-        <section class="container">
-            <ul>
+        <section class="inputSearch container mb-4">
+            <div class="form-group">
+                <label for="inputSearch">サイト内検索</label>
+                <input type="search" class="form-control search" id="inputSearch" placeholder="検索">
+            </div>
+        </section>
+        <section class="container mb-5">
+            <h3><span id="hits" class="mr-2">-</span>件</h3>
+            <ul class="list">
                 <%- htmlList %>
             </ul>
-            <div class="text-center my-4">
-                <a href="<%= relPath %>" class="btn btn-light"><i class="fas fa-fw fa-chevron-left" aria-hidden="true"></i>トップページへ戻る</a>
-            </div>
         </section>
     </main>
     <!-- /main -->

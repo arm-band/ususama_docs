@@ -17,6 +17,7 @@ chrome: true
 fixedanchor_scss: false
 fixedanchor_js: true
 lightbox: true
-slick: true
+slick: false
 svghexagon: false
 imagemin: true
+sitesearch: false

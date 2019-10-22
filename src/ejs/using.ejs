@@ -57,8 +57,10 @@ parameters = {
                     <li><code>new</code>: 開発端末の時刻を使用して新着記事を生成します</li>
                     <li><code>sitemap</code>: <code>dist</code>ディレクトリ以下にあるHTMLファイルから、サイトマップを生成します</li>
                     <li><code>sitexml</code>: <code>dist</code>ディレクトリ以下にあるHTMLファイルから、検索エンジン用のサイトマップ(XMLファイル)を生成します</li>
+                    <li><code>search</code>: <code>dist</code>ディレクトリ以下にあるHTMLファイルから、<code>list.js</code>を使ったサイト内検索ページを生成します</li>
+                    <li><code>test</code>: <code>htmllint</code>, <code>eslint</code>, <code>stylelint</code>によるチェックを実施します。また、同時にHTML中に<code>http</code>始まりのURLを検出します</li>
                 </ul>
-                <p>※コマンドは全て<code>npm run</code>を前に付けること。</p>
+                <p>※<code>test</code>以外のコマンドは全て<code>npm run</code>を前に付けること。</p>
             </div>
         </section>
         <section class="container my-5">
@@ -101,14 +103,12 @@ parameters = {
                         <tr>
                             <td><code>sitemap</code></td>
                             <td><code>true</code></td>
-                            <td><code>dist/</code>下のHTMLファイルから、サイトマップ(ユーザが閲覧するためのHTML)を生成します。<br>
-                                ※<code>gulp</code>のデフォルトタスクには含まれていないので、別途タスクを走らせる必要があります。</td>
+                            <td><code>dist/</code>下のHTMLファイルから、サイトマップ(ユーザが閲覧するためのHTML)を生成します。</td>
                         </tr>
                         <tr>
                             <td><code>sitemap_xml</code></td>
                             <td><code>true</code></td>
-                            <td>dist/</code>下のHTMLファイルから、サイトマップ(クローラ用のXMLファイル)を生成します。<br>
-                                ※<code>gulp</code>のデフォルトタスクには含まれていないので、別途タスクを走らせる必要があります。</td>
+                            <td>dist/</code>下のHTMLファイルから、サイトマップ(クローラ用のXMLファイル)を生成します。</td>
                         </tr>
                         <tr>
                             <td><code>rss</code></td>
@@ -195,6 +195,17 @@ parameters = {
                             <td><code>false</code></td>
                             <td>ヘッダメニューのハンバーガーの背景にsvgを使用して六角形を描画します。</td>
                         </tr>
+                        <tr>
+                            <td><code>imagemin</code></td>
+                            <td><code>true</code></td>
+                            <td>Gulpタスクで画像の容量を圧縮します。<code>false</code>の場合、画像ファイルをそのままコピーします。<br>
+                                ※Windows環境の場合、事前にPowerShellで<code>npm i -g windows-build-tools</code>を行う必要があります。</td>
+                        </tr>
+                        <tr>
+                            <td><code>sitesearch</code></td>
+                            <td><code>false</code></td>
+                            <td><code>dist</code>ディレクトリ以下にあるHTMLファイルから、<code>list.js</code>を使ったサイト内検索ページを生成します</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -242,7 +253,11 @@ root/
   │   │   ├ _common.scss  //共通Scss
   │   │   ├ contents.scss //トップページ以外用Scss
   │   │   └ index.scss    //トップページ
+  ├ .browserslistrc
+  ├ .eslintrc.json
   ├ .gitignore
+  ├ .htmllintrc
+  ├ .stylelintrc.json
   ├ gulpfile.js
   ├ package.json
   ├ readme.md
@@ -289,6 +304,12 @@ root/
                                 <td>0</td>
                                 <td>2</td>
                                 <td>サイトマップページのテンプレート</td>
+                            </tr>
+                            <tr>
+                                <th>_plugins/sitemap/sitesearch.ejs</th>
+                                <td>0</td>
+                                <td>2</td>
+                                <td>サイト内検索ページのテンプレート</td>
                             </tr>
                         </tbody>
                     </table>

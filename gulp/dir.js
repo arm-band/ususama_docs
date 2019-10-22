@@ -6,7 +6,8 @@ module.exports = {
         bootstrap  : './node_modules/bootstrap-honoka/dist/js',
         bowser     : './node_modules/bowser',
         lightbox   : './node_modules/lightbox2/dist',
-        slick      : './node_modules/slick-carousel/slick'
+        slick      : './node_modules/slick-carousel/slick',
+        listjs     : './node_modules/list.js/dist'
     },
     src: {
         ejs        : './src/ejs',
@@ -50,4 +51,4 @@ module.exports = {
         css        : '/dist/public/css',
         distjs     : '/dist/public/js'
     }
-}
+};

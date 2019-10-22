@@ -1,56 +1,58 @@
 <% const snsParam = {
-    "twitter": {
-        "url": `http://twitter.com/share?url=${articleUrl}&text=${metaTitle}%20%2d%20${config.commons.sitename}`,
-        "title": "Twitterでツイート",
-        "bText": "ツイート",
-        "fa": "twitter"
+    'twitter': {
+        'url': `https://twitter.com/share?url=${articleUrl}&text=${metaTitle}%20%2d%20${config.commons.sitename}`,
+        'title': 'Twitterでツイート',
+        'bText': 'ツイート',
+        'fa': 'twitter'
     },
-    "facebook": {
-        "url": `https://www.facebook.com/sharer/sharer.php?u=${articleUrl}`,
-        "title": "Facebookに投稿",
-        "bText": "投稿",
-        "fa": "facebook"
+    'facebook': {
+        'url': `https://www.facebook.com/sharer/sharer.php?u=${articleUrl}`,
+        'title': 'Facebookに投稿',
+        'bText': '投稿',
+        'fa': 'facebook'
     },
-    "hatena": {
-        "url": `http://b.hatena.ne.jp/add?mode=confirm&url=${articleUrl}&title=${metaTitle}%20%2d%20${config.commons.sitename}`,
-        "title": "はてなブックマーク",
-        "bText": "ブックマークする",
-        "fa": "bookmark"
+    'hatena': {
+        'url': `https://b.hatena.ne.jp/add?mode=confirm&url=${articleUrl}&title=${metaTitle}%20%2d%20${config.commons.sitename}`,
+        'title': 'はてなブックマーク',
+        'bText': 'ブックマークする',
+        'fa': 'bookmark'
     },
-    "line": {
-        "url": `http://line.me/R/msg/text/?${metaTitle}%20%2d%20${config.commons.sitename}%20${articleUrl}`,
-        "title": "LINEトークに送る",
-        "bText": "送る",
-        "fa": "line"
+    'line': {
+        'url': `https://line.me/R/msg/text/?${metaTitle}%20%2d%20${config.commons.sitename}%20${articleUrl}`,
+        'title': 'LINEトークに送る',
+        'bText': '送る',
+        'fa': 'line'
     },
-    "pocket": {
-        "url": `https://getpocket.com/edit?url=${articleUrl}`,
-        "title": "Pocketに保存",
-        "bText": "あとで",
-        "fa": "get-pocket"
+    'pocket': {
+        'url': `https://getpocket.com/edit?url=${articleUrl}`,
+        'title': 'Pocketに保存',
+        'bText': 'あとで',
+        'fa': 'get-pocket'
     },
-    "feedly": {
-        "url": `https://feedly.com/i/subscription/feed/${config.commons.url}rss.xml`,
-        "title": "Feedlyに登録",
-        "bText": "Feedly",
-        "fa": "rss"
+    'feedly': {
+        'url': `https://feedly.com/i/subscription/feed/${config.commons.url}rss.xml`,
+        'title': 'Feedlyに登録',
+        'bText': 'Feedly',
+        'fa': 'rss'
     }
-} %>
-<% let flag = 0
-for(let key in config.param.articlesns) {
-    if(config.param.articlesns[key]) flag++
+}; %>
+<% let flag = 0;
+for(let key of Object.keys(config.param.articlesns)) {
+    if(config.param.articlesns[key]) {
+        flag++;
+    }
 }
 if(flag > 0) { //表示させるボタンが1つもない場合はラッパーのボックスさえ表示させない
 %>
                                 <div class="news_share row my-4 w-100 mx-auto">
-<%    for(let key in config.param.articlesns) {
+<%    for(let key of Object.keys(config.param.articlesns)) {
         if(config.param.articlesns[key]) {
-            const buttonClass = key.charAt(0).toUpperCase() + key.slice(1)
-            let faCategory = "fab"
-            if(key === "hatena" || key === "feedly") {
-                faCategory = "fas"
+            const buttonClass = key.charAt(0).toUpperCase() + key.slice(1);
+            let faCategory = 'fab';
+            if(key === 'hatena' || key === 'feedly') {
+                faCategory = 'fas';
             } %>
-                                    <a class="btn news_btn news_btn<%= buttonClass %> col-6 col-lg-4 col-xl-3 mx-1 px-1 mb-3" href="<%= snsParam[key].url %>" target="_blank" title="<%= snsParam[key].title %>"><i class="<%= faCategory %> fa-fw fa-<%= snsParam[key].fa %>" aria-hidden="true"></i><%= snsParam[key].bText %></a>
+                                    <a class="btn news_btn news_btn<%= buttonClass %> col-6 col-lg-4 col-xl-3 mx-1 px-1 mb-3" href="<%= snsParam[key].url %>" target="_blank" rel="noopener" title="<%= snsParam[key].title %>"><i class="<%= faCategory %> fa-fw fa-<%= snsParam[key].fa %>" aria-hidden="true"></i><%= snsParam[key].bText %></a>
 <%      }
     } %>
                                 </div>
