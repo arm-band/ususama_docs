@@ -20,4 +20,4 @@ lightbox: true
 slick: false
 svghexagon: false
 imagemin: true
-sitesearch: false
+sitesearch: true

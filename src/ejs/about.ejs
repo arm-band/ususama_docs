@@ -15,15 +15,15 @@ parameters = {
 </head>
 <body data-offset="<%= navbarHeight %>" class="<%= id %>" id="<%= id %>">
 <div id="wrapper">
-<div class="upper">
+<div class="l-upper">
 <%- include('partial/_header', { config, commonVar }) %>
 <%- include('partial/_eyecatch', { headerString }) %>
     <!-- main -->
-    <main class="main <%= id %>main">
+    <main class="u-main o-main m-0 p-0 <%= id %>main">
         <aside class="container">
-<%- include('partial/_breadcrumb', { parameters, relPath }) %>
+<%- include('partial/_breadcrumb', { config, parameters, relPath }) %>
         </aside>
-        <section class="container my-5">
+        <section class="my-5 container">
 <%- include("partial/_about_contents") %>
             <div class="text-center my-4">
                 <a href="<%= relPath %>" class="btn btn-light"><i class="fas fa-fw fa-chevron-left" aria-hidden="true"></i>トップページへ戻る</a>

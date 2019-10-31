@@ -1,7 +1,5 @@
 color: "#333"
 bg-color: "#fff"
-main-color: "#e46952"
-navbar-height: 80px
-footer-height: 32px
-line-height: "1.6"
-letter-spacing: 0.15rem
+main-color: "#E46952"
+navbar-height: "80px"
+footer-height: "32px"

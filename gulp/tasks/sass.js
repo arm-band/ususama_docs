@@ -6,7 +6,9 @@ const scss = {
     yaml2sass: (done) => {
         const strOrigin = _.fs.readFileSync(dir.config.dir + dir.config.commonvar, 'utf8');
         let strDist = '';
-        let strArray = strOrigin.split("\n");
+        let strConvert = '';
+        strConvert = strOrigin.replace(/\r/g, '');
+        let strArray = strConvert.split("\n");
         for(let i = 0; i < strArray.length; i++) {
             if(!(i === strArray.length - 1 && strArray[i].length === 0)) { //最後の空行以外
                 strDist += `$${strArray[i]};\n`;
@@ -16,11 +18,11 @@ const scss = {
         strDist = strDist.replace(/\"#([\da-fA-F]{6}|[\da-fA-F]{3})\"/g, function() {
             return arguments[0].replace(/\"/g, '');
         })
-        //数値(line-heightなど)
-        strDist = strDist.replace(/\"[\d\.]+\"/g, function() {
+        //数値(+単位)
+        strDist = strDist.replace(/\"[\d\.]+(rem|px|em|\%)?\"/g, function() {
             return arguments[0].replace(/\"/g, '');
         })
-        _.fs.writeFileSync(`${dir.src.scss}/util/_var.scss`, strDist);
+        _.fs.writeFileSync(`${dir.src.scss}/foundation/_var.scss`, strDist);
         done();
     },
     sass: () => {
