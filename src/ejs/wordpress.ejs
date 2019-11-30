@@ -1,0 +1,89 @@
+<%
+parameters = {
+    title: "WordPress連携(β版)",
+    entitle: "Cooperating with WordPress (Beta Version)",
+    css: "contents",
+    js: "app.min",
+    description: "プラグイン機能のうち、WordPress連携部分についてご説明します。",
+    ogpimage: "eyecatch.jpg"
+}
+%><%- include("util/_init_load") %><%- include("util/_headset", { config, parameters }) %>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<%- include("partial/_head", { config, parameters, commonVar, metaTitle, metaDescription, metaOgpimage }) %>
+</head>
+<body data-offset="<%= navbarHeight %>" class="<%= id %>" id="<%= id %>">
+<div id="wrapper">
+<div class="upper">
+<%- include("partial/_header", { config, commonVar }) %>
+<%- include("partial/_eyecatch", { headerString }) %>
+    <!-- main -->
+    <main class="main <%= id %>main">
+        <aside class="container">
+<%- include("partial/_breadcrumb", { parameters, relPath }) %>
+        </aside>
+        <section class="container my-5">
+            <div class="page-header mb-3 text-center wordpress_header">
+                <h2><%= parameters.title %><small class="ml-3"><%= parameters.entitle %></small></h2>
+            </div>
+            <div class="wordpress_contents table-responsive">
+                <p>WordPress連携機能についての説明です。</p>
+                <h3>機能</h3>
+                <p>外部のWordPressサイトをUsusamaの新着情報としてコードを生成します。</p>
+                <h3>使い方</h3>
+                <h4>A. Github</h4>
+                <p>WordPressサイト更新時の自動ビルドに「<a href="https://github.com/features/actions" rel="noopner" target="_blank"><i class="fas fa-fw fa-external-link-alt" aria-hidden="true"></i>Github Actions</a>」を使用するため、Githubの設定も必要となります。</p>
+                <ol class="mb-3">
+                    <li><strong>リポジトリの作成</strong>: Ususamaを利用しているプロジェクトのリポジトリを作成し、<code>master</code>ブランチにプッシュします</li>
+                    <li><strong>Github Actionsの有効化</strong>: リポジトリに対してGithub Actionsを有効にします</li>
+                    <li><strong>Secretsにサーバ情報を設定</strong>: 「Settings」→「Secrets」と進み、ワークフローで使用する4つのキー(でポロイ先サーバのFTP情報)を設定します。
+                        <ul>
+                            <li><code>ftp_user</code>: FTPユーザ名</li>
+                            <li><code>ftp_password</code>: FTPユーザのパスワード</li>
+                            <li><code>ftp_host</code>: ホスト名</li>
+                            <li><code>ftp_remoteroot</code>: デプロイするパス</li>
+                        </ul>
+                    </li>
+                    <li><strong>Personal access tokensの設定</strong>: 「Personal access tokens」を設定し、トークンを控えます</li>
+                </ol>
+                <h4>B. WordPress</h4>
+                <ol class="mb-3">
+                    <li><strong>WordPressの構築</strong>: WordPressサイトを別途構築します(「投稿」のみ使用します)</li>
+                    <li><strong>プラグインのインストール&amp;有効化</strong>: <a href="#" rel="noopner" target="_blank"><i class="fas fa-fw fa-external-link-alt" aria-hidden="true"></i>Karura-en</a>をZipダウンロードし、1.のWordPress管理画面の「プラグイン」→「新規追加」でzipファイルをアップロードし、プラグインをインストール&amp;有効化を行う</li>
+                    <li><strong>プラグインの設定</strong>WordPress管理画面のメニューに「迦楼羅焔設定」が追加されるので、設定画面を開きます。<br>
+                        そして、A.で作成したGithubのリポジトリの情報(ユーザID、リポジトリ名)とPersonal access tokensを入力します</li>
+                </ol>
+                <h4>C. Ususama</h4>
+                <ol class="mb-3">
+                    <li><code>bin/config/plugins.yml</code>の<code>wordpress</code>を<code>true</code>にします</li>
+                    <li><code>bin/config/config.yml</code>の<code>param.news.wpapi</code>にWPサイトのWP REST APIのURLを記述します<br>
+                        (例: <code>https://wpsite.example.com/wp-json/wp/v2/posts</code>)</li>
+                </ol>
+                <h3>留意点</h3>
+                本機能の利用の際にはいくつかの制約が発生します。
+                <h4>A. Github</h4>
+                <ul class="mb-3">
+                    <li>対象ブランチは<code>master</code>のみとなります</li>
+                </ul>
+                <h4>B. WordPress</h4>
+                <ul class="mb-3">
+                    <li><strong>扱うデータについて</strong>: WordPressの「投稿」を新着情報として扱います。「固定ページ」や独自に追加した「カスタム投稿タイプ」は対象外となります(必要ならば、独自に<code>gulp/tasks/ejs.js</code>のejsビルドタスクをカスタマイズしてください)。</li>
+                    <li><strong>画像などのファイルについて</strong>: WordPressの記事中に挿入する画像については、CDNサービス等を使ってWordPressサイト外に画像データがある状態としてください</li>
+                    <li><strong>サイト内リンクについて</strong>: WordPressサイト内のリンクについては、自動置換は行いません</li>
+                </ul>
+            </div>
+        </section>
+        <section class="container my-5">
+            <div class="text-center my-4">
+                <a href="<%= relPath %>" class="btn btn-light"><i class="fas fa-fw fa-chevron-left" aria-hidden="true"></i>トップページへ戻る</a>
+            </div>
+        </section>
+    </main>
+    <!-- /main -->
+</div>
+<%- include("partial/_footer", { config, copyRightYear }) %>
+</div>
+<%- include("partial/_js_loader", { parameters, relPath }) %>
+</body>
+</html>

@@ -87,15 +87,16 @@ parameters = {
                             <li><code>baseurl</code>: (str) 記事ページのベースURL(<code>npm run new</code>した際にFront Matterに代入される値)を変更できます</li>
                             <li><code>indexcount</code>: (num) トップページに表示する新着情報の件数</li>
                             <li><code>newscount</code>: (num) 新着情報一覧ページに表示する新着情報の件数(1ページ当たり)</li>
+                            <li><code>wpapi</code>: (str) WordPressの「投稿」一覧を取得するWP REST APIのURLを指定します (プラグイン)</li>
                         </ul></li>
-                        <li><code>ogp</code>:<ul>
+                        <li><code>ogp</code>: (プラグイン)<ul>
                             <li><code>ogpimage</code>: (str) OGPで使用する画像ファイルのパス</li>
                             <li><code>twitteraccount</code>: (str) OGPで使用するTwitterアカウント</li>
                             <li><code>newsthumbnail</code>: (str) 新着情報一覧ページで表示する記事のサムネイル画像(デフォルト画像)              </li>
                         </ul></li>
-                        <li><code>analytics</code>: (str) アナリティクスID(Google Analytics用)</li>
-                        <li><code>searchconsole</code>: (str) Verification Code(Google Search Console用)</li>
-                        <li><code>articlesns</code>: 記事ページの各種SNSシェア用ボタンを表示するか否か<ul>
+                        <li><code>analytics</code>: (str) アナリティクスID(Google Analytics用) (プラグイン)</li>
+                        <li><code>searchconsole</code>: (str) Verification Code(Google Search Console用) (プラグイン)</li>
+                        <li><code>articlesns</code>: 記事ページの各種SNSシェア用ボタンを表示するか否か (プラグイン)<ul>
                             <li><code>twitter</code>: (bool)</li>
                             <li><code>facebook</code>: (bool)</li>
                             <li><code>hatena</code>: (bool)</li>
@@ -271,6 +272,11 @@ parameters = {
                             <td><code>false</code></td>
                             <td><code>dist</code>ディレクトリ以下にあるHTMLファイルから、<code>list.js</code>を使ったサイト内検索ページを生成します</td>
                         </tr>
+                        <tr>
+                            <td><code>wordpress</code></td>
+                            <td><code>false</code></td>
+                            <td><code>src/contents</code>下のMarkdownファイルからではなく、外部のWordPressサイトの「投稿」データを利用して新着情報を生成します</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -282,7 +288,8 @@ parameters = {
             <div class="how2use_contents">
                 <pre><code>
 root/
-  ├ bin/                      //nodeスクリプトや設定ファイル(config/ 以外は通常編集しない)
+  ├ .github/                  //Github Actionsを利用する際に使用します(通常は編集しない)
+  ├ bin/                      //nodeスクリプトや設定ファイル(config/ 以外は通常は編集しない)
   │   ├ config/
   │   │   ├ commonvar.yml     //ejs, Scss, JSで共通で使い回す値(テーマカラーやヘッダの高さ等)
   │   │   ├ config.yml        //一般設定
