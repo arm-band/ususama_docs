@@ -12,6 +12,7 @@ param:
     baseurl: "news"
     indexcount: 3
     newscount: 6
+    wpapi: ""
   ogp:
     ogpimage: img/eyecatch.jpg
     twitteraccount: Bredtn_1et
