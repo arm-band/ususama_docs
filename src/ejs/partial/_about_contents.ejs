@@ -257,3 +257,24 @@
         <p>コマンド1つで、各種Lint(htmllint, ESLint, Stylelint)によるコードのチェックを実行できます。また、Prettierによるコードフォーマットも可能です。</p>
     </div>
 </div>
+<div class="row align-items-center my-4 features_contents features_address fixed_anchor" id="features_address">
+    <div class="col-12 col-md-3 mb-3 text-center">
+        <i class="fas fa-fw fa-9x fa-map-marked-alt" aria-hidden="true"></i>
+    </div>
+    <div class="col-12 col-md-9 mb-3">
+        <h3>連絡先情報</h3>
+        <p><code>bin/config.yml</code>のパラメータを使って、郵便番号・住所・電話番号を一元管理できます。また、郵便番号の前に「〒」マークを、電話番号の前に「TEL:」を自動付与します。</p>
+        <h4>住所・連絡先のサンプル</h4>
+        <div class="list-group mb-3">
+            <div class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1"><%= config.commons.author %></h5>
+                    <small>※住所・郵便番号・電話番号はいずれもダミーです</small>
+                </div>
+                <p class="mb-1"><span class="o-address o-address_postalcode mr-1"><%= config.commons.postalcode %></span> <span class="address"><%= config.commons.address %></span></p>
+                <small><a href="tel:<%= config.commons.tel %>"><span class="o-address o-address_tel mr-1"><%= config.commons.tel %></span></a></small>
+            </div>
+        </div>
+        <p>※住所・郵便番号・電話番号はいずれもダミーです。</p>
+    </div>
+</div>
