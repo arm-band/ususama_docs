@@ -10,7 +10,7 @@ let ftpConfig = {
     'remoteRoot': '',
     'include': ["*", "**/*"],
     'exclude': null,
-    'deleteRemote': true
+    'deleteRemote': false
 };
 //フラグ
 let argsFlag = {
