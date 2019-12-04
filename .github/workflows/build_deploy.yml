@@ -21,4 +21,4 @@ jobs:
       run: |
         npm i -D
         npm run build
-        npm run sowaka ${{ SECRETS.ftp_user }} ${{ SECRETS.ftp_password }} ${{ SECRETS.ftp_host }} ${{ SECRETS.ftp_remoteroot }}
+        npm run tankai ${{ SECRETS.ftp_user }} ${{ SECRETS.ftp_password }} ${{ SECRETS.ftp_host }} ${{ SECRETS.ftp_remoteroot }}
