@@ -277,6 +277,11 @@ parameters = {
                             <td><code>false</code></td>
                             <td><code>src/contents</code>下のMarkdownファイルからではなく、外部のWordPressサイトの「投稿」データを利用して新着情報を生成します</td>
                         </tr>
+                        <tr>
+                            <td><code>advanced_typo</code></td>
+                            <td><code>false</code></td>
+                            <td>Scssに<code>font-size</code>、<code>line-height</code>、<code>margin</code>、<code>padding</code>のベースを追加する。</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -337,6 +342,37 @@ root/
   ├ readme.md
   └ sample.env            //.envのサンプル
                 </code></pre>
+            </div>
+        </section>
+        <section class="container my-5">
+            <div class="page-header mb-3 text-center how2use_header">
+                <h2><code>advanced_typo</code>のクラスと効果一覧<small class="ml-3">advanced_typo</small></h2>
+            </div>
+            <div class="how2use_contents">
+                <div class="mb-4">
+                    <h3>font-size</h3>
+<% for (let i = 1; i<= 10; i++) { %>
+                    <div class="fs-<%= i %>">Lorem Ipsum (fs-<%= i %>)</div>
+<% } %>
+                </div>
+                <div class="mb-4">
+                    <h3>line-height</h3>
+<% for (let i = 1; i<= 5; i++) { %>
+                    <div class="lh-<%= i %>">Lorem Ipsum (lh-<%= i %>)</div>
+<% } %>
+                </div>
+                <div class="mb-4">
+                    <h3>margin</h3>
+<% for (let i = 1; i<= 6; i++) { %>
+                    <div class="u-my-<%= i %>">Lorem Ipsum (u-my-<%= i %>)</div>
+<% } %>
+                </div>
+                <div class="mb-4">
+                        <h3>padding</h3>
+<% for (let i = 1; i<= 6; i++) { %>
+                    <div class="u-py-<%= i %>">Lorem Ipsum (u-py-<%= i %>)</div>
+<% } %>
+                </div>
             </div>
         </section>
         <section class="container my-5">
