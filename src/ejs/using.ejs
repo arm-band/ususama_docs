@@ -214,13 +214,7 @@ parameters = {
                         <tr>
                             <td><code>safari</code></td>
                             <td><code>true</code></td>
-                            <td>iOS Safari用のコードを出力します(<code>background-size:cover;background-attachement:fixed;</code>指定をしたアイキャッチ画像の巨大化)。<br>
-                                ※<code>body</code>タグに<code>mobileSafari</code>クラスを付与するので、クラスを用いて別のiOS Safari用の処理に流用することができます。</td>
-                        </tr>
-                        <tr>
-                            <td><code>ie</code></td>
-                            <td><code>false</code></td>
-                            <td>IE用のコードを出力します(<code>&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;</code>等)。</td>
+                            <td>iOS Safari用のコードを出力します(<code>background-size:cover;background-attachement:fixed;</code>指定をしたアイキャッチ画像の巨大化)。</td>
                         </tr>
                         <tr>
                             <td><code>chrome</code></td>
@@ -278,6 +272,7 @@ parameters = {
                         </tr>
                     </tbody>
                 </table>
+                <div>この他に、<code>.env</code>の<code>DEV_MODE</code>を<code>true</code>に指定するとJavaScriptとcssのインラインコードとしてソースマップを出力します。</div>
             </div>
         </section>
         <section class="container my-5">
