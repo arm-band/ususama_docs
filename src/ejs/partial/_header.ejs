@@ -16,17 +16,18 @@ if(plugins.svghexagon) {
 <% const navPath = funcNavPath(relPath, id) -%>
             <div class="collapse navbar-collapse" id="navbarList">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="<%= navPath %>#features">特徴</a>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="dropdownFeature" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">機能</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownFeature">
+                            <a class="dropdown-item" href="<%= navPath %>#features">特徴</a>
+                            <a class="dropdown-item" href="<%= navPath %>wordpress.html">WordPress連携(β版)</a>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<%= navPath %>#how2use">使い方</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<%= navPath %>#origin">由来</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<%= navPath %>wordpress.html">WordPress連携(β版)</a>
                     </li>
 <%
 if(plugins.news) {

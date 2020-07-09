@@ -30,8 +30,8 @@ parameters = {
                 <div class="how2use_contents">
                     <h3>Node.js</h3>
                     <ul>
-                        <li><code>node</code>: <code>>= 12.0.0</code></li>
-                        <li><code>npm</code>: <code>>= 6.0.0</code></li>
+                        <li><code>node</code>: <code>&gt;= 12.0.0</code></li>
+                        <li><code>npm</code>: <code>&gt;= 6.0.0</code></li>
                     </ul>
                 </div>
             </section>
@@ -223,15 +223,13 @@ parameters = {
                         </tr>
                         <tr>
                             <td><code>fixedanchor_scss</code></td>
-                            <td><code>false</code></td>
-                            <td>画面上端にヘッダメニューを固定した場合にアンカースクロールがズレる現象を回避するためのコードを追加します(cssバージョン)。<br>
-                                ※<code>fixedanchor_js</code>と両方とも<code>true</code>にはしないでください。</td>
+                            <td><code>true</code></td>
+                            <td>画面上端にヘッダメニューを固定した場合にアンカースクロールがズレる現象を回避するためのコードを追加します(css, 異なるページへのアンカー用)。</td>
                         </tr>
                         <tr>
                             <td><code>fixedanchor_js</code></td>
                             <td><code>true</code></td>
-                            <td>画面上端にヘッダメニューを固定した場合にアンカースクロールがズレる現象を回避するためのコードを追加します(cssバージョン)。<br>
-                                ※<code>fixedanchor_scss</code>と両方とも<code>true</code>にはしないでください。</td>
+                            <td>画面上端にヘッダメニューを固定した場合にアンカースクロールがズレる現象を回避するためのコードを追加します(JS, ページ内アンカー用)。</td>
                         </tr>
                         <tr>
                             <td><code>lightbox</code></td>
@@ -282,54 +280,54 @@ parameters = {
             <div class="how2use_contents">
                 <pre><code>
 root/
-  ├ .github/                  //Github Actionsを利用する際に使用します(通常は編集しない)
-  ├ bin/                      //nodeスクリプトや設定ファイル(config/ 以外は通常は編集しない)
-  │   ├ config/
-  │   │   ├ commonvar.yml     //ejs, Scss, JSで共通で使い回す値(テーマカラーやヘッダの高さ等)
-  │   │   ├ config.yml        //一般設定
-  │   │   ├ ftpconfig.yml     //FTP設定テンプレート(編集しない)
-  │   │   └ plugins.yml       //プラグイン使用フラグ設定
-  │   ├ daishi/               //初期設定画面のソースコード一式
-  │   ├ styleguide/           //スタイルガイド用テンプレート
-  │   └ jsファイル             //タスクスクリプト
-  ├ gulp/                     //gupタスク(通常編集しない)
-  ├ src/
-  │   ├ contents/             //(npm start で自動生成されます)新着記事Markdown格納ディレクトリ(1記事1ファイル)
-  │   ├ ejs/
-  │   │   ├ _plugins/         //プラグイン機能ディレクトリ
-  │   │   ├ partial/          //ヘッダ・フッタ等のパーツ
-  │   │   ├ util/             //表示・出力はされないejsファイル(パスの処理など)
-  │   │   ├ about.ejs         //一般ページサンプル
-  │   │   ├ article.ejs       //新着記事、詳細ページテンプレート
-  │   │   ├ index.ejs         //トップページ
-  │   │   └ news.ejs          //新着記事、一覧ページテンプレート
-  │   ├ favicon/
-  │   ├ img/                  //画像ファイル
-  │   │   └ thumbnails/       //新着記事サムネイル画像格納ディレクトリ
-  │   ├ js/
-  │   │   ├ _plugins/         //プラグイン機能ディレクトリ
-  │   │   └ app.js            //メインスクリプト
-  │   ├ php/                  //PHPファイル用のディレクトリ
-  │   ├ scss/
-  │   │   ├ _plugins/         //プラグイン機能ディレクトリ
-  │   │   ├ assets/           //(npm start で自動生成されます)Bootstrap等のフレームワークのコードの格納ディレクトリ(編集のため)
-  │   │   ├ foundation/       //FLOCSSのディレクトリ構造で構成
-  │   │   ├ layout/           //FLOCSSのディレクトリ構造で構成
-  │   │   ├ object/           //FLOCSSのディレクトリ構造で構成
-  │   │   │   ├ component/    //FLOCSSのディレクトリ構造で構成
-  │   │   │   ├ project/      //FLOCSSのディレクトリ構造で構成
-  │   │   │   └ utility/      //FLOCSSのディレクトリ構造で構成
-  │   │   ├ contents.scss     //トップページ以外用Scss
-  │   │   └ index.scss        //トップページ
-  ├ .browserslistrc
-  ├ .eslintrc.json
-  ├ .gitignore
-  ├ .htmllintrc
-  ├ .stylelintrc.json
-  ├ gulpfile.js
-  ├ package.json
-  ├ readme.md
-  └ sample.env            //.envのサンプル
+    ├ .github/                     //Github Actionsを利用する際に使用します(通常は編集しない)
+    ├ bin/                         //nodeスクリプトや設定ファイル(config/ 以外は通常は編集しない)
+    │    ├ config/
+    │    │    ├ commonvar.yml      //ejs, Scss, JSで共通で使い回す値(テーマカラーやヘッダの高さ等)
+    │    │    ├ config.yml         //一般設定
+    │    │    ├ ftpconfig.yml      //FTP設定テンプレート(編集しない)
+    │    │    └ plugins.yml        //プラグイン使用フラグ設定
+    │    ├ daishi/                 //初期設定画面のソースコード一式
+    │    ├ styleguide/             //スタイルガイド用テンプレート
+    │    └ jsファイル               //タスクスクリプト
+    ├ gulp/                        //gupタスク(通常編集しない)
+    ├ src/
+    │    ├ contents/               //(npm start で自動生成されます)新着記事Markdown格納ディレクトリ(1記事1ファイル)
+    │    ├ ejs/
+    │    │    ├ _plugins/          //プラグイン機能ディレクトリ
+    │    │    ├ partial/           //ヘッダ・フッタ等のパーツ
+    │    │    ├ util/              //表示・出力はされないejsファイル(パスの処理など)
+    │    │    ├ about.ejs          //一般ページサンプル
+    │    │    ├ article.ejs        //新着記事、詳細ページテンプレート
+    │    │    ├ index.ejs          //トップページ
+    │    │    └ news.ejs           //新着記事、一覧ページテンプレート
+    │    ├ favicon/
+    │    ├ img/                    //画像ファイル
+    │    │    └ thumbnails/        //新着記事サムネイル画像格納ディレクトリ
+    │    ├ js/
+    │    │    ├ _plugins/          //プラグイン機能ディレクトリ
+    │    │    └ app.js             //メインスクリプト
+    │    ├ php/                    //PHPファイル用のディレクトリ
+    │    ├ scss/
+    │    │    ├ _plugins/          //プラグイン機能ディレクトリ
+    │    │    ├ assets/            //(npm start で自動生成されます)Bootstrap等のフレームワークのコードの格納ディレクトリ(編集のため)
+    │    │    ├ foundation/        //FLOCSSのディレクトリ構造で構成
+    │    │    ├ layout/            //FLOCSSのディレクトリ構造で構成
+    │    │    ├ object/            //FLOCSSのディレクトリ構造で構成
+    │    │    │    ├ component/    //FLOCSSのディレクトリ構造で構成
+    │    │    │    ├ project/      //FLOCSSのディレクトリ構造で構成
+    │    │    │    └ utility/      //FLOCSSのディレクトリ構造で構成
+    │    │    ├ contents.scss      //トップページ以外用Scss
+    │    │    └ index.scss         //トップページ
+    ├ .browserslistrc
+    ├ .eslintrc.json
+    ├ .gitignore
+    ├ .htmllintrc
+    ├ .stylelintrc.json
+    ├ gulpfile.js
+    ├ package.json
+    ├ readme.md
+    └ sample.env            //.envのサンプル
                 </code></pre>
             </div>
         </section>
