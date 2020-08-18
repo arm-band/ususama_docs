@@ -268,6 +268,12 @@ parameters = {
                             <td><code>false</code></td>
                             <td>Scssに<code>font-size</code>、<code>line-height</code>、<code>margin</code>、<code>padding</code>のベースを追加する。</td>
                         </tr>
+                        <tr>
+                            <td><code>noscript</code></td>
+                            <td><code>true</code></td>
+                            <td>各ページに<code>noscript</code>タグを追加し、JavaScriptの有効化を求めるメッセージを出力します。<br>
+                                ※<code>src/scss/noscript.scss</code>でデザイン調整をしています。<code>./dist/css/noscript.css</code>は本フラグにより自動的に出力する/しないを切り替えます。</td>
+                        </tr>
                     </tbody>
                 </table>
                 <div>この他に、<code>.env</code>の<code>DEV_MODE</code>を<code>true</code>に指定するとJavaScriptとcssのインラインコードとしてソースマップを出力します。</div>
