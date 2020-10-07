@@ -276,7 +276,47 @@ parameters = {
                         </tr>
                     </tbody>
                 </table>
-                <div>この他に、<code>.env</code>の<code>DEV_MODE</code>を<code>true</code>に指定するとJavaScriptとcssのインラインコードとしてソースマップを出力します。</div>
+            </div>
+        </section>
+        <section class="container pb-5">
+            <div class="page-header mb-3 text-center how2use_header">
+                <h2><code>DEV_MODE</code>の効果<small class="ml-3">Effect of <code>DEV_MODE</code></small></h2>
+            </div>
+            <div class="how2use_contents table-responsive">
+                <table class="table table-striped table-hover plugin_table">
+                    <thead>
+                        <tr>
+                            <th>フラグ名</th>
+                            <th>効果</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>dev</code></td>
+                            <td>
+                                <ul>
+                                    <li>JavaScript, Scss: インラインコードとしてソースマップを出力</li>
+                                    <li>EJS: 各種ページで <code>meta name="robots"</code> に <code>noindex, nofollow</code> を出力、 Google Analytics のタグと Google Search Console の <code>google-site-verification</code> 属性を出力しないように抑制</li>
+                                    <li>ftpdeploy: アップロード処理をスキップしてアップロードしないようにします</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code>demo</code></td>
+                            <td>
+                                <ul>
+                                    <li>EJS: 各種ページで <code>meta name="robots"</code> に <code>noindex, nofollow</code> を出力、 Google Analytics のタグと Google Search Console の <code>google-site-verification</code> 属性を出力しないように抑制</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code>prod</code></td>
+                            <td>
+                                抑制なし
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
         <section class="container pb-5">
