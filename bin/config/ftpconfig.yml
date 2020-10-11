@@ -5,7 +5,8 @@ port: 21
 localRoot: ./dist/
 remoteRoot: ./path/to/web/root/
 include:
-  - "*"
-  - "**/*"
+    - "*"
+    - "**/*"
+    - ".*"
 exclude: null
 deleteRemote: false
