@@ -6,8 +6,8 @@
         <i class="fab fa-fw fa-9x fa-gulp" aria-hidden="true"></i>
     </div>
     <div class="col-12 col-md-9 mb-3">
-        <h3>gulp</h3>
-        <p>タスクランナーに<a href="https://gulpjs.com" target="_blank" rel="noopener"><i class="fas fa-fw fa-external-link-alt" aria-hidden="true"></i>gulp</a>を採用し、下記の工程を一括で管理します。</p>
+        <h3>Gulp</h3>
+        <p>タスクランナーに<a href="https://gulpjs.com" target="_blank" rel="noopener"><i class="fas fa-fw fa-external-link-alt" aria-hidden="true"></i>Gulp</a>を採用し、下記の工程を一括で管理します。</p>
         <ul>
             <li>サイト名やメインカラー、ヘッダの高さなど、サイト全体で使用するパラメータをYAMLファイルで管理。集中管理することでHTML<span class="mr-2">,</span>Scssを横断して共通のパラメータを使用できます。
                 <ul>
@@ -47,7 +47,7 @@
     </div>
     <div class="col-12 col-md-9 mb-3">
         <h3>News</h3>
-        <p>新着情報をテンプレートで一括管理。<code>gulp</code>を使って、<code>src/contents/</code>以下のMarkdownファイルから、新着一覧ページ・各記事ページを自動生成します。</p>
+        <p>新着情報をテンプレートで一括管理。Gulpを使って、<code>src/contents/</code>以下のMarkdownファイルから、新着一覧ページ・各記事ページを自動生成します。</p>
         <ul>
             <li><code>news.ejs</code><span class="mr-2">:</span>新着情報一覧ページテンプレート。1ページ当たりの記事の表示数は<code>config.yml</code>の<code>param:news:newscount:</code>で変更できます。また、1ページ当たりの記事の表示数を越えた場合はnews1.html<span class="mr-2">,</span>news2.html<span class="mr-2">,</span>とナンバリングして必要な分だけ自動生成します。ページネーションも自動的に生成します。</li>
             <li><code>article.ejs</code><span class="mr-2">:</span>個別記事ページテンプレート。Markdownファイルの数だけ記事ページとして生成します。内容はMarkdownのFront-matterと実際のコンテンツ内容から生成します。</li>
@@ -60,12 +60,12 @@
     </div>
     <div class="col-12 col-md-9 order-md-1 mb-3">
         <h3>Initial Settings</h3>
-        <p><code>npm start</code>で初回のスクリプトを実行すると、下記の行程を順次自動的に行います。</p>
+        <p><code>yarn start</code>で初回のスクリプトを実行すると、下記の行程を順次自動的に行います。</p>
         <ol>
             <li>リソースファイルの配置</li>
             <li><a href="https://expressjs.com/" target="_blank" rel="noopener"><i class="fas fa-fw fa-external-link-alt" aria-hidden="true"></i>Express</a>により初期設定画面を起動、ブラウザを自動起動して初期設定画面を表示</li>
             <li>初期設定画面ではサイト情報や<a href="#features_ogp">OGP</a>、<a href="#features_news">新着情報生成の有無</a>、サーバアップロードのためのFTP情報の設定等を設定できます</li>
-            <li>設定画面からボタンを押して進むと、<code>gulp</code>によりWebサイトのコードを生成<span class="mx-2">+</span>自動でプレビューを表示、自動リロードへ</li>
+            <li>設定画面からボタンを押して進むと、GulpによりWebサイトのコードを生成<span class="mx-2">+</span>自動でプレビューを表示、自動リロードへ</li>
         </ol>
     </div>
 </div>
@@ -84,7 +84,6 @@
         <p>特定のブラウザで気になる現象をある程度抑止します。</p>
         <ul class="fa-ul">
             <li><i class="fab fa-fw fa-chrome" aria-hidden="true"></i>Chrome系<span class="mr-2">:</span><code>-webkit-padding-start</code>を抑止</li>
-            <li><i class="fab fa-fw fa-internet-explorer" aria-hidden="true"></i>IE<span class="mr-2">:</span><code>@-ms-viewport</code>でスクロールバーの背後までページが描画されてしまうのを防ぎます</li>
             <li><i class="fab fa-fw fa-safari" aria-hidden="true"></i>iOS Safari<span class="mr-2">:</span><code>background-size:cover;background-attachement:fixed;</code>を指定した背景画像で、画像の一部が異常に拡大されて表示されてしまう現象があります。この現象に対して、<a href="https://www.npmjs.com/package/bowser" target="_blank" rel="noopener"><i class="fas fa-fw fa-external-link-alt" aria-hidden="true"></i>bowser</a>によるユーザーエージェント判定を行い、iOS Safariのみ<code>background-attachement:scroll;</code>に変更して現象を回避します</li>
         </ul>
     </div>
@@ -105,22 +104,9 @@
 </div>
 <div class="row align-items-center my-4 features_contents features_modules fixed_anchor" id="features_modules">
     <div class="col-12 col-md-3 mb-3 text-center">
-        <i class="fas fa-fw fa-9x fa-cogs" aria-hidden="true"></i>
-    </div>
-    <div class="col-12 col-md-9 mb-3">
-        <h3>Mixin</h3>
-        <p>下記のmixinがあります。</p>
-        <ul>
-            <li><code>t</code><span class="mr-2">:</span><code>transition</code>アニメーションの指定</li>
-            <li><code>eyecatchBGImg</code><span class="mr-2">:</span>キービジュアル画像に関する指定</li>
-        </ul>
-    </div>
-</div>
-<div class="row align-items-center my-4 features_contents features_brandcolors fixed_anchor" id="features_brandcolors">
-    <div class="col-12 col-md-3 order-md-2 mb-3 text-center">
         <i class="fas fa-fw fa-9x fa-palette" aria-hidden="true"></i>
     </div>
-    <div class="col-12 col-md-9 order-md-1 mb-3">
+    <div class="col-12 col-md-9 mb-3">
         <h3>Brand Colors</h3>
         <p><a href="https://www.npmjs.com/package/brand-colors" target="_blank" rel="noopener"><i class="fas fa-fw fa-external-link-alt" aria-hidden="true"></i>brand-colors</a>を使用し、メジャーなツール・サービスのブランドカラーを指定することができます。</p>
     </div>
