@@ -107,7 +107,7 @@ parameters = {
                     </ul></li>
                 </ul>
                 <h3 class="mt-3"><code>commonvar.yml</code></h3>
-                <p>ejs, Scssで共通で使用する設定です。</p>
+                <p>EJS, Scssで共通で使用する設定です。</p>
                 <ul>
                     <li><code>us-color</code>: (str) 文字色</li>
                     <li><code>us-bg-color</code>: (str) メインコンテンツ部分の背景色</li>
@@ -187,7 +187,7 @@ parameters = {
                             <td><code>ogp</code></td>
                             <td><code>true</code></td>
                             <td>各ページの<code>head</code>内にOGP用のタグを出力します。<br>
-                                ページ名や説明は各ejs内のパラメータ、サイト名やTwitterアカウント情報などは設定ファイル(<code>bin/config/config.yml</code>)を利用して、適宜OGPを設定します。<br>
+                                ページ名や説明は各EJS内のパラメータ、サイト名やTwitterアカウント情報などは設定ファイル(<code>bin/config/config.yml</code>)を利用して、適宜OGPを設定します。<br>
                                 また、新着情報についてはフロントマターを使用して適宜設定できます。</td>
                         </tr>
                         <tr>
@@ -333,60 +333,65 @@ parameters = {
             <div class="how2use_contents">
                 <pre><code>
 root/
-    ├ .github/                     // Github Actions を利用する際に使用します(通常は編集しない)
-    ├ bin/                         // node スクリプトや設定ファイル( config/ 以外は通常は編集しない)
+    ├ .github/                               // Github Actions を利用する際に使用します(通常は編集しない)
+    ├ bin/                                   // node スクリプトや設定ファイル( config/ 以外は通常は編集しない)
     │    ├ config/
-    │    │    ├ commonvar.yml      // ejs, Scss, JavaScript で共通で使い回す値(テーマカラーやヘッダの高さ等)
-    │    │    ├ config.yml         // 一般設定
-    │    │    ├ ftpconfig.yml      // FTP 設定テンプレート(編集しない)
-    │    │    └ plugins.yml        // プラグイン使用フラグ設定
-    │    ├ daishi/                 // 初期設定画面のソースコード一式
-    │    ├ styleguide/             // スタイルガイド用テンプレート
-    │    └ jsファイル               / /タスクスクリプト
-    ├ gulp/                        // Gulp タスク(通常編集しない)
+    │    │    ├ commonvar.yml                // EJS, Scss, JavaScript で共通で使い回す値(テーマカラーやヘッダの高さ等)
+    │    │    ├ config.yml                   // 一般設定
+    │    │    ├ ftpconfig.yml                // FTP 設定テンプレート(編集しない)
+    │    │    └ plugins.yml                  // プラグイン使用フラグ設定
+    │    ├ daishi/                           // 初期設定画面のソースコード一式
+    │    ├ styleguide/                       // スタイルガイド用テンプレート
+    │    └ jsファイル                         // タスクスクリプト
+    ├ gulp/                                  // Gulp タスク(通常編集しない)
     ├ src/
-    │    ├ assets/                 // アセットファイル( pdf, Word, Excel, PowerPoint ファイル想定)格納ディレクトリ
-    │    ├ contents/               // (yarn start で自動生成されます)新着記事 Markdown 格納ディレクトリ(1記事1ファイル)
+    │    ├ assets/                           // アセットファイル( pdf, Word, Excel, PowerPoint ファイル想定)格納ディレクトリ
+    │    ├ contents/                         // (yarn start で自動生成されます)新着記事 Markdown 格納ディレクトリ(1記事1ファイル)
     │    ├ ejs/
-    │    │    ├ _plugins/          // プラグイン機能ディレクトリ
-    │    │    ├ partial/           // ヘッダ・フッタ等のパーツ
-    │    │    ├ util/              // 表示・出力はされない ejs ファイル(パスの処理など)
-    │    │    ├ about.ejs          // 一般ページサンプル
-    │    │    ├ article.ejs        // 新着記事、詳細ページテンプレート
-    │    │    ├ index.ejs          // トップページ
-    │    │    └ news.ejs           // 新着記事、一覧ページテンプレート
+    │    │    ├ _plugins/                    // プラグイン機能ディレクトリ
+    │    │    ├ partial/                     // ヘッダ・フッタ等のパーツ
+    │    │    ├ util/                        // 表示・出力はされない EJS ファイル(パスの処理など)
+    │    │    ├ about.ejs                    // 一般ページサンプル
+    │    │    ├ article.ejs                  // 新着記事、詳細ページテンプレート
+    │    │    ├ index.ejs                    // トップページ
+    │    │    └ news.ejs                     // 新着記事、一覧ページテンプレート
     │    ├ favicon/
-    │    ├ img/                    // 画像ファイル
-    │    │    └ thumbnails/        // 新着記事サムネイル画像格納ディレクトリ
+    │    ├ img/                              // 画像ファイル
+    │    │    └ thumbnails/                  // 新着記事サムネイル画像格納ディレクトリ
     │    ├ js/
-    │    │    ├ _plugins/          // プラグイン機能ディレクトリ
-    │    │    └ app.js             // メインスクリプト
-    │    ├ php/                    // PHP ファイル用のディレクトリ
+    │    │    ├ _plugins/                    // プラグイン機能ディレクトリ
+    │    │    └ app.js                       // メインスクリプト
+    │    ├ php/                              // PHP ファイル用のディレクトリ
     │    ├ scss/
-    │    │    ├ _plugins/          // プラグイン機能ディレクトリ
-    │    │    ├ assets/            // (yarn start で自動生成されます)Bootstrap等のフレームワークのコードの格納ディレクトリ(編集のため)
-    │    │    ├ foundation/        // FLOCSS のディレクトリ構造で構成
-    │    │    ├ global/            // Dart Sass に際して各Scssで使用するグローバル変数などの置き場所
-    │    │    ├ layout/            // FLOCSS のディレクトリ構造で構成
-    │    │    ├ object/            // FLOCSS のディレクトリ構造で構成
-    │    │    │    ├ component/    // FLOCSS のディレクトリ構造で構成
-    │    │    │    ├ project/      // FLOCSS のディレクトリ構造で構成
-    │    │    │    └ utility/      // FLOCSS のディレクトリ構造で構成
-    │    │    ├ contents.scss      // トップページ以外用 Scss
-    │    │    ├ index.scss         // トップページ
-    │    │    └ noscript.scss      // JavaScript 無効時に表示する通知要素のための Scss
-    ├ .browserslistrc              // Autoprefixer 等の設定ファイル
-    ├ .eslintignore                // Eslint の設定ファイル
-    ├ .eslintrc.json               // Eslint の設定ファイル
+    │    │    ├ _plugins/                    // プラグイン機能ディレクトリ
+    │    │    ├ assets/                      // (yarn start で自動生成されます)Bootstrap等のフレームワークのコードの格納ディレクトリ(編集のため)
+    │    │    ├ foundation/                  // FLOCSS のディレクトリ構造で構成
+    │    │    ├ global/                      // Dart Sass に際して各Scssで使用するグローバル変数などの置き場所
+    │    │    │    ├ _framework.scss         // CSSフレームワーク 読み込み
+    │    │    │    ├ _index.scss
+    │    │    │    ├ _mixin.scss
+    │    │    │    ├ _scss_variables.scss    // Scssのみで使用する変数
+    │    │    │    └ _var.scss               // bin/config/commonvar.yml から自動生成。 EJS と共有している変数
+    │    │    ├ layout/                      // FLOCSS のディレクトリ構造で構成
+    │    │    ├ object/                      // FLOCSS のディレクトリ構造で構成
+    │    │    │    ├ component/              // FLOCSS のディレクトリ構造で構成
+    │    │    │    ├ project/                // FLOCSS のディレクトリ構造で構成
+    │    │    │    └ utility/                // FLOCSS のディレクトリ構造で構成
+    │    │    ├ contents.scss                // トップページ以外用 Scss
+    │    │    ├ index.scss                   // トップページ
+    │    │    └ noscript.scss                // JavaScript 無効時に表示する通知要素のための Scss
+    ├ .browserslistrc                        // Autoprefixer 等の設定ファイル
+    ├ .eslintignore                          // Eslint の設定ファイル
+    ├ .eslintrc.json                         // Eslint の設定ファイル
     ├ .gitignore
-    ├ .htmllintrc                  // htmllint-cli の設定ファイル
-    ├ .prettierrc                  // Prettier の設定ファイル
-    ├ .stylelintrc.json            // Stylelint の設定ファイル
+    ├ .htmllintrc                            // htmllint-cli の設定ファイル
+    ├ .prettierrc                            // Prettier の設定ファイル
+    ├ .stylelintrc.json                      // Stylelint の設定ファイル
     ├ gulpfile.js
     ├ package.json
     ├ readme.md
-    ├ sample.env                   // .envのサンプル
-    └ weppack.config.js            // Webpack の設定ファイル
+    ├ sample.env                             // .envのサンプル
+    └ weppack.config.js                      // Webpack の設定ファイル
                 </code></pre>
             </div>
         </section>
@@ -428,9 +433,9 @@ root/
             <div class="how2use_contents">
                 <h3 class="mt-3 mb-2"><code>src/scss/global/_var.scss</code></h3>
                 <p>Gulpタスクが走ると<code>_var.scss</code>ファイルが生成されます。このファイルは<code>bin/config/commonvar.yml</code>から自動で生成されるため、編集しないでください。</p>
-                <p>なお、<code>bin/config/commonvar.yml</code>は<a href="<%= relPath %>about.html#features_gulp">Gulpの機能</a>でも少し触れていますが、ejs, Scss等で共通する変数をまとめたものです。編集の際にはこちらを編集するようにしてください。</p>
+                <p>なお、<code>bin/config/commonvar.yml</code>は<a href="<%= relPath %>about.html#features_gulp">Gulpの機能</a>でも少し触れていますが、EJS, Scss等で共通する変数をまとめたものです。編集の際にはこちらを編集するようにしてください。</p>
                 <h3 class="mt-3 mb-2"><code>relPath</code></h3>
-                <p>ejsに<code>relPath</code>という変数が指定できます。これは、現在のejsファイルの相対パスを示すものです。</p>
+                <p>EJSに<code>relPath</code>という変数が指定できます。これは、現在のejsファイルの相対パスを示すものです。</p>
                 <p>ただし、一部のejsはテンプレートとして実際のディレクトリ構造とは異なるパスを出力するため、この変数で指定をしています。</p>
                 <div class="table-responsive mt-3 mb-2">
                     <table class="table table-striped table-hover">
