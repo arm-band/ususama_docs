@@ -364,9 +364,9 @@ root/
     │    ├ php/                              // PHP ファイル用のディレクトリ
     │    ├ scss/
     │    │    ├ _plugins/                    // プラグイン機能ディレクトリ
-    │    │    ├ assets/                      // (yarn start で自動生成されます)Bootstrap等のフレームワークのコードの格納ディレクトリ(編集のため)
     │    │    ├ foundation/                  // FLOCSS のディレクトリ構造で構成
     │    │    ├ global/                      // Dart Sass に際して各Scssで使用するグローバル変数などの置き場所
+    │    │    │    ├ honoka/                 // CSSフレームワーク 読み込み用ファイルの置き場所
     │    │    │    ├ _framework.scss         // CSSフレームワーク 読み込み
     │    │    │    ├ _index.scss
     │    │    │    ├ _mixin.scss
@@ -381,7 +381,6 @@ root/
     │    │    ├ index.scss                   // トップページ
     │    │    └ noscript.scss                // JavaScript 無効時に表示する通知要素のための Scss
     ├ .browserslistrc                        // Autoprefixer 等の設定ファイル
-    ├ .eslintignore                          // Eslint の設定ファイル
     ├ .eslintrc.json                         // Eslint の設定ファイル
     ├ .gitignore
     ├ .htmllintrc                            // htmllint-cli の設定ファイル
