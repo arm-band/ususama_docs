@@ -15,7 +15,7 @@ parameters = {
 <head>
 <%- include('../../partial/_head', { config, parameters, commonVar, metaTitle, metaDescription, metaOgpimage }) %>
 </head>
-<body data-offset="<%= navbarHeight %>" data-fixedanchor="<%= flagFixedAnchor %>" class="<%= id %>" id="<%= id %>">
+<body data-offset="<%= navbarHeight %>" class="<%= id %>" id="<%= id %>">
 <div id="wrapper">
 <div class="l-upper">
 <%- include('../../partial/_header', { config, commonVar }) %>
@@ -42,7 +42,7 @@ parameters = {
         </div>
         <div class="container">
             <section class="pb-5">
-                <h3><span id="hits" class="mr-2">-</span>件</h3>
+                <h3><span id="hits" class="me-2">-</span>件</h3>
                 <ul class="list">
                     <%- htmlList %>
                 </ul>
