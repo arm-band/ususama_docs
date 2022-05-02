@@ -7,7 +7,7 @@ parameters = {
     description: "Kiribi Ususamaの使い方についてご説明します。",
     ogpimage: "eyecatch.jpg"
 }
-%><%- include("util/_init_load") %><%- include("util/_headset", { config, parameters }) %>
+%><%- include("util/_initLoad") %><%- include("util/_headset", { config, parameters }) %>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -481,6 +481,6 @@ root/
 </div>
 <%- include("partial/_footer", { config, copyRightYear }) %>
 </div>
-<%- include("partial/_js_loader", { parameters, relPath }) %>
+<%- include("partial/_jsLoader", { parameters, relPath }) %>
 </body>
 </html>
